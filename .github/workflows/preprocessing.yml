@@ -25,6 +25,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas numpy
 
+      - name: Download raw dataset
+        run: |
+          mkdir -p dataset/open+university+learning+analytics+dataset
+          wget -q https://archive.ics.uci.edu/static/public/326/open+university+learning+analytics+dataset.zip -O dataset.zip
+          unzip -q dataset.zip -d dataset/open+university+learning+analytics+dataset/
+
       - name: Run preprocessing
         run: python preprocessing/automate_yesaya.py
 
